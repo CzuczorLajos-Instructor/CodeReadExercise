@@ -6,7 +6,7 @@ internal class Program1
 {
     static void Main()
     {
-        int size = 7;
+        size = 7;
         int difference = 115;
         switch (size)
         {
