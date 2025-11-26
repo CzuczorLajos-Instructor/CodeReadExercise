@@ -1,13 +1,14 @@
 ﻿namespace CodeReadExercise;
 /**
- * What's the problem with this piece of code?
+ * Can Main() method compile? If not, how can you fix it?
+ * Suppose that InputWidth() compiles and always returns a value between -100 and +100, both inclusive.
  */
 internal class Program3
 {
     static void Main()
     {
         int omicron;
-        int num = input(); // num is between -100 and +100, both inclusive, see input() method
+        int num = InputWidth(); // num is between -100 and +100, both inclusive
         if (num < 40)
         {
             omicron = 3;
@@ -18,7 +19,7 @@ internal class Program3
         }
         else if (num < 10)
         {
-            Console.WriteLine("Kisbb, mint 10");
+            Console.WriteLine("Kisebb, mint 10");
         }
         else
         {
@@ -26,16 +27,15 @@ internal class Program3
         }
         Console.WriteLine("Omikron = " + omicron);
     }
-
-    static int input()
+    // ensures that the return value is between -100 and +100
+    static int InputWidth()
     {
-        int number;
-        Console.WriteLine("Add meg az N számot (-100 ≤ N ≤ +100)!");
-        do
+        Console.WriteLine("Add meg a szélességet (-100..+100)!");
+        for (; ; )
         {
-            Console.Write("N = ");
-            number = int.Parse(Console.ReadLine() ?? "0");
-        } while (number < -100 || number > +100);
-        return number;
+            Console.Write("Sz = ");
+            if (int.TryParse(Console.ReadLine(), out int width) && width is >= -100 and <= +100)
+                return width;
+        }
     }
 }

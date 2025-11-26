@@ -1,6 +1,7 @@
 ﻿namespace CodeReadExercise;
 /**
  * What's the problem with this piece of code? How can you fix it?
+ * Is there only one or mutiple problems? Explain all you find.
  */
 internal class Program1
 {
